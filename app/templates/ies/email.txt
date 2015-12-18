@@ -1,0 +1,22 @@
+You have a new submission.
+
+
+Programme: {{ request.form['programme'] }}
+
+Full Name: {{ request.form['fullName'] }}
+
+Job Title: {{ request.form['jobTitle'] }}
+
+Organization: {{ request.form['organisation'] }}
+
+Country: {{ request.form['country'] }}
+
+Postal Address: {{ request.form['postalAddress'] }}
+
+Telephone: {{ request.form['telephone'] }}
+
+Mobile Number: {{ request.form['mobileNumber'] }}
+
+Email: {{ request.form['email'] }}
+
+How did you hear about us: {{ request.form['how'] }}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="google-site-verification" content="">
+    <meta name="application-name" content="ieslearning.com">
+    <meta name="description" content="Institute of Executive Studies- Global Training Provider">
+    <meta name="keywords" content="institute of executive studies, executive studies, ies, ies ghana, executive training, Training in Ghana, executive studies, business professionals, human resource training. human resource management in Ghana, Ghana, webinar, institutes in ghana, professional certification, professional training, best training provider, seminar, HR Data Analytics and Reporting , Labour experts, hands on training, best training partner, Graduate training, workers in Ghana, best executive training ghana, workers training, companies in ghana, international training, top company in ghana, Negotiation Techniques for HR Professionals, onsite training, best webinar ghana, IES Learning, IES, online learning, executive learning,">
+    <meta name="author" content="codyCobs">
+    <title>Training | IES</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/iescss.css') }}" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="{{ url_for('static', filename='js/html5shiv.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/respond.js') }}"></script>
+    <![endif]-->
+    <<script src="{{ url_for('static', filename='js/jQuery-v2.1.3.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <link href="{{ url_for('static', filename='img/favicon') }}" rel="shortcut icon">
+</head>
+<body>
+    <div class="container">
+<nav class="navbar">
+<div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+            data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="{{ url_for('index') }}" class="navbar-brand"><img src="{{ url_for('static', filename='img/stories/logo.png') }}"
+         alt="IES Logo" class="img-responsive"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-nav">
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('aboutus') }}">About Us</a></li>
+            <li><a href=" {{ url_for('training') }}">Training</a></li>
+            <li><a href="{{ url_for('onsite') }}">Onsite</a></li>
+            <li class="dropdown">
+                <a href="international.html" class="dropdown-toggle" data-toggle="dropdown"
+                role="button" aria-haspopup="true" aria-expanded="false">
+                International Programmes <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="registerNow.html">Register Now</a></li>
+                    <li><a href="internationalProgrammes.html">Internatinal Programmes</a></li>
+                </ul>
+            </li>
+            <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
+            <li><a href="{{ url_for('contact') }}">Contacts</a></li>
+        </ul>
+    </div>
+</div>
+</nav>
+<!-- End of navigation -->
+    
+<main class="pg-content trng">
+    <div class="row">
+        <div class="col-sm-12">
+            <img src="{{ url_for('static', filename='img/stories/inpages_banner.jpg') }}" alt="" class="img-responsive center-block">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>Training Schedule - IES</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <th>Seminars</th>
+                        <th>Course Code</th>
+                        <th>Duration</th>
+                        <th>Location</th>
+                        <th>Date</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        {% if programme %}
+                          {% for programme in programme %}
+                            <tr>
+                                <td><a href="{{ url_for('programmedetail', slug=programme.slug) }}">{{ programme.title}}</a></td>
+                                <td>{{ programme.course_code }}</td>
+                                <td>{{ programme.duration }}</td>
+                                <td>{{ programme.location}}</td>
+                                <td>{{ programme.date.strftime("%d-%B-%Y") }}</td>
+                                <td><a href="{{ url_for('trainingregistration') }}" class="pull-right"><img src="{{ url_for('static', filename='img/stories/reg_now.png') }}" alt="register-online" width="100"></a></td>
+                            </tr>
+                          {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="row">
+    <div class="col-sm-12 col-md-5 col-lg-6 text-center">
+        <strong>Follow us</strong>&nbsp;&nbsp;&nbsp;
+        <a href="https://www.twitter.com" target="_blank"><i class="fa fa-twitter-square"></i> Twitter</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook-square"></i> Facebook</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://www.plus.google.com" target="_blank"><i class="fa fa-google-plus-square"></i> Google+</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="col-sm-12 col-md-7 col-lg-6 text-center">
+        <a href="http://www.gameyandgamey.com/new/" target="_blank"><img src="{{ url_for('static', filename='img/ggam_logo.png') }}" class="img-responsive"></a>
+        <p><strong><em>In Partnership with</em></strong></p>
+        <a href="http://www.deweycollege.ca" target="_blank"><img src="{{ url_for('static', filename='img/dewey_logo.png') }}" alt="dewey-logo" class="img-responsive"></a>
+    </div>
+</footer>
+    </div>
+    
+<div class="container-fluid footnote">
+    <div class="row">
+        <p class="col-xs-7 text-right">
+            Institute of Executive Studies &copy; <span id="date"></span>
+            <script>
+                var today = new Date();
+                document.getElementById('date').innerHTML = today.getFullYear();
+            </script>
+        </p>
+        <p class="col-xs-5 text-left">
+            <a href="privacyPolicy.html">Privacy Policy</a>
+        </p>
+        <p class="col-xs-12 text-center"><a href="http://www.leafecodes.com" class="themed" target="_blank">Developed by LEAFECODES.COM</a></p>
+    </div>
+</div>
+</body>
+</html>
