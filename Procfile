@@ -1,1 +1,1 @@
-web: gunicorn manage:python manage run
+web: gunicorn --log-file - app:app
