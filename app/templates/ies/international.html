@@ -22,7 +22,7 @@
 </head>
 <body>
     <div class="container">
-<<nav class="navbar">
+<nav class="navbar">
 <div class="container-fluid">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed"
@@ -46,8 +46,8 @@
                 role="button" aria-haspopup="true" aria-expanded="false">
                 International Programmes <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="registerNow.html">Register Now</a></li>
-                    <li><a href="internationalProgrammes.html">Internatinal Programmes</a></li>
+                    <li><a href="{{ url_for('internationalregistration') }}">Register Now</a></li>
+                    <li><a href="{{ url_for('internationalprogrammes') }}">Internatinal Programmes</a></li>
                 </ul>
             </li>
             <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
@@ -66,7 +66,7 @@
         </div>
         <div class="col-sm-12">
             <h1 class="text-uppercase text-center"><strong>imagine a week studying with the top universities in canada ...</strong></h1>
-            <h4 class="text-center"><strong>We bring you results-oriented executive training at international venues for business leaders and aspirants designed to increase diversity and opportunity in  global business education.</strong><h4><hr>
+            <h4 class="text-center"><strong>We bring you results-oriented executive training at international venues for business leaders and aspirants designed to increase diversity and opportunity in  global business education.</strong></h4><hr>
         </div>
     </div>
     <div class="row">

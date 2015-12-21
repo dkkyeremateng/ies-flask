@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for, session
 from app import app, db
-from programme.models import Programme
+from programme.models import Programme, InternationalProgramme
 from user.models import Users
 from programme.forms import CreateProgrammeForm
 from slugify import slugify
@@ -29,7 +29,32 @@ def create_programme():
             error = "Unable to create programme"
             db.session.rollback()
             return render_template("programme/createprogramme.html", form=form, error=error)
-    return render_template("programme/createprogramme.html", action="new", form=form)
+    return render_template("programme/createprogramme.html", action="new", course="local", form=form)
+
+
+@app.route("/admin/createinternationalcourse/", methods=('GET', 'POST'))
+@login_required
+def create_international_course():
+
+    form = CreateProgrammeForm()
+
+    if form.validate_on_submit():
+        slug = slugify(form.title.data)
+        user = Users.query.filter_by(username=session["username"]).first()
+        user = user.id
+        programme = InternationalProgramme(user, form.title.data, form.overview.data, form.outcome.data,
+                                           form.course_code.data, form.duration.data, form.location.data,
+                                           form.date.data, form.period.data, form.time.data, form.fee.data, slug)
+        if programme:
+            db.session.add(programme)
+            db.session.flush()
+            db.session.commit()
+            return redirect(url_for('admin'))
+        else:
+            error = "Unable to create programme"
+            db.session.rollback()
+            return render_template("programme/createprogramme.html", form=form, error=error)
+    return render_template("programme/createprogramme.html", action="new", course="inter", form=form)
 
 
 @app.route("/admin/programme/update")
@@ -38,6 +63,14 @@ def updateprogramme():
     programme = Programme.query.order_by(Programme.date.asc()).all()
 
     return render_template("programme/updateprogramme.html", programme=programme)
+
+
+@app.route("/admin/internationalprogramme/update")
+@login_required
+def updatintereprogramme():
+    programme = InternationalProgramme.query.order_by(InternationalProgramme.date.asc()).all()
+
+    return render_template("programme/updateinternationalprogramme.html", programme=programme)
 
 
 @app.route("/admin/programme/update/<slug>", methods=("POST", "GET"))
@@ -51,4 +84,18 @@ def update(slug):
         form.populate_obj(programme)
         db.session.commit()
         return redirect(url_for("updateprogramme"))
-    return render_template("programme/createprogramme.html", action="edit", form=form, programme=programme)
+    return render_template("programme/createprogramme.html", action="edit", course="local", form=form, programme=programme)
+
+
+@app.route("/admin/programme/updateinternationalprogramme/<slug>", methods=("POST", "GET"))
+@login_required
+def update_international(slug):
+    programme = InternationalProgramme.query.filter_by(slug=slug).first_or_404()
+
+    form = CreateProgrammeForm(obj=programme)
+
+    if form.validate_on_submit():
+        form.populate_obj(programme)
+        db.session.commit()
+        return redirect(url_for("updateinternationalprogramme"))
+    return render_template("programme/createprogramme.html", action="edit", course="inter", form=form, programme=programme)

@@ -8,8 +8,8 @@
     <meta name="description" content="Institute of Executive Studies- Global Training Provider">
     <meta name="keywords" content="institute of executive studies, executive studies, ies, ies ghana, executive training, Training in Ghana, executive studies, business professionals, human resource training. human resource management in Ghana, Ghana, webinar, institutes in ghana, professional certification, professional training, best training provider, seminar, HR Data Analytics and Reporting , Labour experts, hands on training, best training partner, Graduate training, workers in Ghana, best executive training ghana, workers training, companies in ghana, international training, top company in ghana, Negotiation Techniques for HR Professionals, onsite training, best webinar ghana, IES Learning, IES, online learning, executive learning,">
     <meta name="author" content="codyCobs">
-    <title>Onsite | IES</title>
-     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <title>Human Resource Data Intelligence</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/iescss.css') }}" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -46,89 +46,45 @@
                 role="button" aria-haspopup="true" aria-expanded="false">
                 International Programmes <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="{{ url_for('internationalregistration') }}">Register Now</a></li>
-                    <li><a href="{{ url_for('internationalprogrammes') }}">Internatinal Programmes</a></li>
+                    <li><a href="registerNow.html">Register Now</a></li>
+                    <li><a href="internationalProgrammes.html">Internatinal Programmes</a></li>
                 </ul>
             </li>
-            <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
-            <li><a href="{{ url_for('contact') }}">Contacts</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
         </ul>
     </div>
 </div>
 </nav>
 <!-- End of navigation -->
-    
-<main class="pg-content onsite">
+
+<main class="pg-content crsdet">
     <div class="row">
         <div class="col-sm-12">
-            <img src="{{ url_for('static', filename='img/stories/inpages_banner2.jpg') }}" alt="" class="img-responsive center-block">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-9">
-            <h3 class="themed">On-Site</h3><br>
-            <div class="cap">
-                <p>IES delivers training in numerous subject specializations, including those listed below.</p>
-                <p>If you do not find your sepcialization requirement listed below, <a href="contacts.html" class="themed">contact us</a>. We can fulfill virtually any non-technical training need.</p>
-            </div>
-            <hr>
-            <div id="bm-skills">
-                <h5>Business and Management Skills</h5>
-                <ul>
-                    <li>Budgeting for Managers</li>
-                    <li>Creating High Performance Teams using Emotional Intelligence</li>
-                    <li>Effective People Management Skills</li>
-                    <li>Master the Art of Negotiation to Win &amp; Close Deals</li>
-                    <li>The Labour Aspects of Management</li>
-                    <li>Project Management for Non - Project Managers</li>
-                    <li>Key Skills for Effective Managers</li>
-                    <li>Professional Presentation Skills &ndash; Learn to Present with Power and Confidence</li>
-                    <li>Practical Project Management &ndash; Essential Skills, Tools and Techniques</li>
-                    <li>Strategic Human Resource Management</li>
-                </ul>
-            </div>
-            
-            <div id="Secretarial">
-                <h5>Secretarial Courses</h5>
-                <ul>
-                    <li>Telephone Etiquette &amp; Frontline Reception Skills</li>
-                    <li>Event Management &ndash; The Office Professionals' Essential Toolkit</li>
-                    <li>Mastering Excel for the Office Professional</li>
-                    <li>Finance, Accounts and Budgets for Secretaries and PAs</li>
-                    <li>Business Etiquette &amp; Cultural Diversity for Frontline &amp; Administrative Staff</li>
-                    <li>Practical, Everyday Business Writing Skills for Secretaries and PAs</li>
-                </ul>
-            </div>
-            
-            <div id="c-and-d">
-                <h5>Credit and Debt Courses</h5>
-                <ul>
-                    <li>Advanced Debt Collection Tactics &amp; Strategies</li>
-                    <li>Developing &amp; Managing a Vigorous Credit Department</li>
-                    <li>Time Management Techniques for Successful Debt Collection</li>
-                </ul>
-            </div>
-            
-            <div id="legal">
-                <h5>Legal Course for Managers</h5>
-                <ul>
-                    <li>The Labour Aspects of Management</li>
-                    <li>Praactical Business Law for Mangers</li>
-                </ul>
-            </div>
-            
-            <div id="other">
-                <h5>Others</h5>
-                <ul>
-                    <li>Finance for Non-Finacial Mangers</li>
-                    <li>The Accounts Assistant</li>
-                    <li>Working with Finances, Accounnts &amp; Budgets for Non-Financial Managers</li>
-                    <li>Self Awareness &amp; Confidence Builiding</li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <a href="{{ url_for('requestforproposal') }}"><img src="{{ url_for('static', filename='img/stories/RFP1.jpg') }}" alt="" class="img-responsive center-block"></a>
+            <h4>{{ programme.title }} | <a href="{{ url_for('trainingregistration') }}" class="themed">Register Online</a></h4>
+            <br>
+            <br>
+            <h4>Overview</h4>
+            <p class="text-justify">{% if programme.overview %} {{ programme.overview }} {% endif %}</p><br>
+
+            <p><strong>By the end of the course, you will be able to:</strong></p>
+            <p>{% if programme.outcome %} {{ programme.outcome|markdown}} {% endif %}</p><br>
+            <h4>Course Details</h4>
+            <p><strong>Date:</strong>&nbsp;&nbsp;&nbsp;{{ programme.period }}</p>
+            <p><strong>Venue:</strong>  {{ programme.location }}</p>
+            <p><strong>Fee:</strong> ${{ programme.fee }} per participant (All Training Sessions, Certificate, Light refreshmment and Lunch.)</p>
+
+            <br>
+            <h3><strong><a href="{{ url_for('internationalregistration') }}" class="themed">Register Online</a></strong></h3><br>
+            <p>For assistance :</p>
+            <ul>
+                <li>Call Kwabena on +233 307 030572 or +233 244  856218 <br>
+                Or email us at <a href="mailto:info@ieslearning.com" class="themed">info@ieslearning.com</a> |  <a href="mailto:kwabena@ieslearning.com" class="themed">kwabena@ieslearning.com</a></li>
+            </ul>
+        <br>
+        <br>
+        <br>
+        <br>
         </div>
     </div>
 </main>
@@ -145,13 +101,13 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
     </div>
     <div class="col-sm-12 col-md-7 col-lg-6 text-center">
-        <a href="http://www.gameyandgamey.com/new/" target="_blank"><img src="{{ url_for('static', filename='img/ggam_logo.png') }}" alt="gamey_&_gamey-logo" class="img-responsive"></a>
+        <a href="http://www.gameyandgamey.com/new/" target="_blank"><img src="{{ url_for('static', filename='img/ggam_logo.png') }}" class="img-responsive"></a>
         <p><strong><em>In Partnership with</em></strong></p>
         <a href="http://www.deweycollege.ca" target="_blank"><img src="{{ url_for('static', filename='img/dewey_logo.png') }}" alt="dewey-logo" class="img-responsive"></a>
     </div>
 </footer>
     </div>
-    
+
 <div class="container-fluid footnote">
     <div class="row">
         <p class="col-xs-7 text-right">

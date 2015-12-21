@@ -10,5 +10,10 @@
   <p><a href="{{ url_for('index') }}">Frontend</a></p>
   <p><a href="{{ url_for('updateprogramme') }}">Update Programme</a></p>
   <p><a href="{{ url_for('create_programme') }}">Create Programme</a></p>
+  <p><a href="{{ url_for('create_international_course') }}">Create International Programme</a></p>
+  <p><a href="{{ url_for('updatintereprogramme') }}">Update International Programme</a></p>
+  {% if session["admin"]  %}
+  <p><a href="{{ url_for('register_page') }}">Add Editor</a></p>
+  {% endif %}
 </body>
 </html>

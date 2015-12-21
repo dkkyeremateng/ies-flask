@@ -46,8 +46,8 @@
                 role="button" aria-haspopup="true" aria-expanded="false">
                 International Programmes <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="registerNow.html">Register Now</a></li>
-                    <li><a href="internationalProgrammes.html">Internatinal Programmes</a></li>
+                    <li><a href="{{ url_for('internationalregistration') }}">Register Now</a></li>
+                    <li><a href="{{ url_for('internationalprogrammes') }}">Internatinal Programmes</a></li>
                 </ul>
             </li>
             <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
@@ -85,18 +85,17 @@
     <div class="col-xs-6 col-md-3">
         <h4 class="col-headers">Webinars</h4>
         <p>Practical online sessions at your convenience.</p>
-        <p><img src="{{ url_for('static', filename='img/bkg-link-arrow-red.jpg') }}" alt="arrow-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="training.html" class="themed">Browse our topics</a> <br></p>
-        <p><img src="{{ url_for('static', filename='img/bkg-link-arrow-red.jpg') }}" alt="arrow-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="training.html" class="themed">Browse our topics</a> <br></p>
+        <p><img src="{{ url_for('static', filename='img/bkg-link-arrow-red.jpg') }}" alt="arrow-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ url_for('training') }}" class="themed">Browse our topics</a> <br></p>
     </div>
     <div class="col-xs-6 col-md-3">
         <h4 class="col-headers">Short Courses</h4>
         <p>Boost organizational development and productivity with our short courses.</p>
-        <p><img src="{{ url_for('static', filename='img/bkg-link-arrow-red.jpg') }}" alt="arrow-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="training.html" class="themed">Start here now</a> <br></p>
+        <p><img src="{{ url_for('static', filename='img/bkg-link-arrow-red.jpg') }}" alt="arrow-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ url_for('training') }}" class="themed">Start here now</a> <br></p>
     </div>
     <div class="col-xs-6 col-md-3">
         <h4 class="col-headers">In-house</h4>
         <p>Effective training sessions made just for you and at your own venue.</p>
-        <p><img src="{{ url_for('static', filename='img/bkg-link-arrow-red.jpg') }}" alt="arrow-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="onsite.html" class="themed">Find out more here</a> <br></p>
+        <p><img src="{{ url_for('static', filename='img/bkg-link-arrow-red.jpg') }}" alt="arrow-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ url_for('onsite') }}" class="themed">Find out more here</a> <br></p>
     </div>
     <div class="col-xs-6 col-md-3">
         <h4 class="col-headers">International Programmes</h4>
@@ -122,7 +121,6 @@
                 </article>
               {% endfor %}
             {% endif %}
-
             <div class="col-xs-12">
                 <a href="{{ url_for('training') }}" class="btn btn-default themed">More Programmes</a>
             </div>
@@ -133,53 +131,23 @@
     <div class="col-sm-6 col-md-4">
         <h4 class="col-headers-default">Upcoming International Programmes</h4>
         <div class="row">
-            <article class="col-xs-6 col-sm-12">
-                <h5 class="themed"><img src="{{ url_for('static', filename='img/bkg-link-arrow-red.jpg') }}" alt="arrow-right">
-                &nbsp;&nbsp;&nbsp;Advanced Human Resource Management</h5>
-                <div class="pad">
-                    <p><strong>Intake:</strong>&nbsp;September, 2015</p>
-                    <p><strong>Venue:</strong>&nbsp;Ontario Canada</p>
-                    <p  class="themed twinAnchored">
-                        <a href="humanResourceDataIntlligence.html" class="themed">Find out more details</a> | <a href="regInternationalProgrammes.html" class="themed">register now</a>
-                    </p>
-                </div>
-            </article>
-
-            <article class="col-xs-6 col-sm-12">
-                <h5 class="themed"><img src="{{ url_for('static', filename='img/bkg-link-arrow-red.jpg') }}" alt="arrow-right">
-                &nbsp;&nbsp;&nbsp;Certificate in Occupational Health &amp; Safety</h5>
-                <div class="pad">
-                    <p><strong>Intake:</strong>&nbsp;September, 2015</p>
-                    <p><strong>Venue:</strong>&nbsp;Ontario Canada</p>
-                    <p  class="themed twinAnchored">
-                        <a href="occupationalHealthAndSafety.html" class="themed">Find out more details</a> | <a href="regInternationalProgrammes.html" class="themed">register now</a>
-                    </p>
-                </div>
-            </article>
-
-            <article class="col-xs-6 col-sm-12">
-                <h5 class="themed"><img src="{{ url_for('static', filename='img/bkg-link-arrow-red.jpg') }}" alt="arrow-right">
-                &nbsp;&nbsp;&nbsp;Advanced Management Programme</h5>
-                <div class="pad">
-                    <p><strong>Intake:</strong>&nbsp;June | July | October - 2015</p>
-                    <p><strong>Venue:</strong>&nbsp;Ontario Canada</p>
-                    <p  class="themed twinAnchored">
-                        <a href="advancedManagementProgramme.html" class="themed">Find out more details</a> | <a href="regInternationalProgrammes.html" class="themed">register now</a>
-                    </p>
-                </div>
-            </article>
-
-            <article class="col-xs-6 col-sm-12 clump">
-                <h5><img src="{{ url_for('static', filename='img/bkg-link-arrow-red.jpg') }}" alt="arrow-right">
-                &nbsp;&nbsp;&nbsp;<a href="internationalProgrammes.html" class="themed">Business Intelligence Development and Data Analytics</a></h5>
-                <h5><img src="{{ url_for('static', filename='img/bkg-link-arrow-red.jpg') }}" alt="arrow-right">
-                &nbsp;&nbsp;&nbsp;<a href="forensicAccountingAndFraudDetection.html" class="themed">Forensic Accounting and Fraud Detection</a></h5>
-                <h5><img src="{{ url_for('static', filename='img/bkg-link-arrow-red.jpg') }}" alt="arrow-right">
-                &nbsp;&nbsp;&nbsp;<a href="internationalProgrammes.html" class="themed">Leading Transformation for the Public Sector</a></h5>
-            </article>
-
+            {% if inter_programme %}
+              {% for programme in inter_programme %}
+                <article class="col-xs-6 col-sm-12">
+                    <h5 class="themed"><img src="{{ url_for('static', filename='img/bkg-link-arrow-red.jpg') }}" alt="arrow-right">
+                    &nbsp;&nbsp;&nbsp;{{ programme.title }}</h5>
+                    <div class="pad">
+                        <p><strong>Intake:</strong>&nbsp;{{ programme.period }}</p>
+                        <p><strong>Venue:</strong>&nbsp;{{ programme.location }}</p>
+                        <p  class="themed twinAnchored">
+                            <a href="{{ url_for('internationalprogrammedetail', slug=programme.slug) }}" class="themed">Find out more details</a> | <a href="{{ url_for('internationalregistration') }}" class="themed">Register now</a>
+                        </p>
+                    </div>
+                </article>
+              {% endfor %}
+            {% endif %}
             <div class="col-xs-12">
-                <a href="internationalProgrammes.html" class="btn btn-default themed">More Programmes</a>
+                <a href="{{ url_for('internationalprogrammes') }}" class="btn btn-default themed">More Programmes</a>
             </div>
         </div>
     </div>

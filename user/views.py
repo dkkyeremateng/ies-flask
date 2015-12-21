@@ -44,7 +44,7 @@ def register_page():
         try:
             user = Users.register(form.fullname.data, form.email.data, form.username.data, form.password.data, True, False)
             session["username"] = form.username.data
-            return redirect(url_for("login_page"))
+            return redirect(url_for("admin"))
         except Exception as e:
             db.session.rollback()
             print(e)

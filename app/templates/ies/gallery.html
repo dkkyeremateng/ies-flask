@@ -47,8 +47,8 @@
                 role="button" aria-haspopup="true" aria-expanded="false">
                 International Programmes <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="registerNow.html">Register Now</a></li>
-                    <li><a href="internationalProgrammes.html">Internatinal Programmes</a></li>
+                    <li><a href="{{ url_for('internationalregistration') }}">Register Now</a></li>
+                    <li><a href="{{ url_for('internationalprogrammes') }}">Internatinal Programmes</a></li>
                 </ul>
             </li>
             <li><a href="{{ url_for('gallery') }}">Gallery</a></li>

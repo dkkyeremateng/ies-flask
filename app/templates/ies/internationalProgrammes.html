@@ -8,8 +8,8 @@
     <meta name="description" content="Institute of Executive Studies- Global Training Provider">
     <meta name="keywords" content="institute of executive studies, executive studies, ies, ies ghana, executive training, Training in Ghana, executive studies, business professionals, human resource training. human resource management in Ghana, Ghana, webinar, institutes in ghana, professional certification, professional training, best training provider, seminar, HR Data Analytics and Reporting , Labour experts, hands on training, best training partner, Graduate training, workers in Ghana, best executive training ghana, workers training, companies in ghana, international training, top company in ghana, Negotiation Techniques for HR Professionals, onsite training, best webinar ghana, IES Learning, IES, online learning, executive learning,">
     <meta name="author" content="codyCobs">
-    <title>Onsite | IES</title>
-     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <title>International Programmes | IES</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/iescss.css') }}" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -58,77 +58,38 @@
 </nav>
 <!-- End of navigation -->
     
-<main class="pg-content onsite">
+<main class="pg-content trng">
     <div class="row">
         <div class="col-sm-12">
-            <img src="{{ url_for('static', filename='img/stories/inpages_banner2.jpg') }}" alt="" class="img-responsive center-block">
+            <h3 class="themed">International Programmes Schedule</h3><br>
+            <img src="{{ url_for('static', filename='img/stories/inpages_banner.jpg') }}" alt="international-programmes-schedule" class="img-responsive">
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-9">
-            <h3 class="themed">On-Site</h3><br>
-            <div class="cap">
-                <p>IES delivers training in numerous subject specializations, including those listed below.</p>
-                <p>If you do not find your sepcialization requirement listed below, <a href="contacts.html" class="themed">contact us</a>. We can fulfill virtually any non-technical training need.</p>
+        <div class="col-sm-12">
+            <h4>International Programmes Schedule &ndash; IES</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <th>International Programmes</th>
+                        <th>Course Code</th>
+                        <th>Duration</th>
+                        <th>Location</th>
+                        <th>Date</th>
+                        <th></th>
+                    </thead>
+                    {% if programme %}
+                          {% for programme in programme %}
+                            <tr>
+                                <td><a href="{{ url_for('programmedetail', slug=programme.slug) }}">{{ programme.title}}</a></td>
+                                <td>{{ programme.course_code }}</td>
+                                <td>{{ programme.duration }}</td>
+                                <td>{{ programme.location}}</td>
+                                <td>{{ programme.period }}</td>
+                                <td><a href="{{ url_for('internationalregistration') }}" class="pull-right"><img src="{{ url_for('static', filename='img/stories/reg_now.png') }}" alt="register-online" width="100"></a></td>
+                            </tr>
+                          {% endfor %}
+                        {% endif %}
+                </table>
             </div>
-            <hr>
-            <div id="bm-skills">
-                <h5>Business and Management Skills</h5>
-                <ul>
-                    <li>Budgeting for Managers</li>
-                    <li>Creating High Performance Teams using Emotional Intelligence</li>
-                    <li>Effective People Management Skills</li>
-                    <li>Master the Art of Negotiation to Win &amp; Close Deals</li>
-                    <li>The Labour Aspects of Management</li>
-                    <li>Project Management for Non - Project Managers</li>
-                    <li>Key Skills for Effective Managers</li>
-                    <li>Professional Presentation Skills &ndash; Learn to Present with Power and Confidence</li>
-                    <li>Practical Project Management &ndash; Essential Skills, Tools and Techniques</li>
-                    <li>Strategic Human Resource Management</li>
-                </ul>
-            </div>
-            
-            <div id="Secretarial">
-                <h5>Secretarial Courses</h5>
-                <ul>
-                    <li>Telephone Etiquette &amp; Frontline Reception Skills</li>
-                    <li>Event Management &ndash; The Office Professionals' Essential Toolkit</li>
-                    <li>Mastering Excel for the Office Professional</li>
-                    <li>Finance, Accounts and Budgets for Secretaries and PAs</li>
-                    <li>Business Etiquette &amp; Cultural Diversity for Frontline &amp; Administrative Staff</li>
-                    <li>Practical, Everyday Business Writing Skills for Secretaries and PAs</li>
-                </ul>
-            </div>
-            
-            <div id="c-and-d">
-                <h5>Credit and Debt Courses</h5>
-                <ul>
-                    <li>Advanced Debt Collection Tactics &amp; Strategies</li>
-                    <li>Developing &amp; Managing a Vigorous Credit Department</li>
-                    <li>Time Management Techniques for Successful Debt Collection</li>
-                </ul>
-            </div>
-            
-            <div id="legal">
-                <h5>Legal Course for Managers</h5>
-                <ul>
-                    <li>The Labour Aspects of Management</li>
-                    <li>Praactical Business Law for Mangers</li>
-                </ul>
-            </div>
-            
-            <div id="other">
-                <h5>Others</h5>
-                <ul>
-                    <li>Finance for Non-Finacial Mangers</li>
-                    <li>The Accounts Assistant</li>
-                    <li>Working with Finances, Accounnts &amp; Budgets for Non-Financial Managers</li>
-                    <li>Self Awareness &amp; Confidence Builiding</li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <a href="{{ url_for('requestforproposal') }}"><img src="{{ url_for('static', filename='img/stories/RFP1.jpg') }}" alt="" class="img-responsive center-block"></a>
         </div>
     </div>
 </main>

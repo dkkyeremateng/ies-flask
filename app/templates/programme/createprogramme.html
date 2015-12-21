@@ -8,9 +8,12 @@
 <div class="row">
 
   <div class="col-md-offset-3 col-md-6">
-
-     {% if action == "new" %}
-      <h3>Create Programme</h3>
+    {% if action == "new" %}
+      {% if course == "local" %}
+        <h3>Create Programme</h3>
+      {% else %}
+        <h3>Create International Programme</h3>
+      {% endif %}
     {% else %}
       <h3>Edit Programme Post</h3>
     {% endif %}
@@ -18,7 +21,11 @@
     {% from "_formhelpers.html" import render_field %}
 
     {% if action == "new" %}
-      <form method="POST" action="{{ url_for('create_programme') }}" role="form" enctype="multipart/form-data">
+      {% if course == "local" %}
+        <form method="POST" action="{{ url_for('create_programme') }}" role="form" enctype="multipart/form-data">
+      {% else %}
+        <form method="POST" action="{{ url_for('create_international_course') }}" role="form" enctype="multipart/form-data">
+      {% endif %}
     {% else %}
        <form method="POST" action="{{ url_for('update', slug=programme.slug) }}" role="form" enctype="multipart/form-data">
     {% endif %}
