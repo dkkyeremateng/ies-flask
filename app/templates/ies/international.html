@@ -8,8 +8,8 @@
     <meta name="description" content="Institute of Executive Studies- Global Training Provider">
     <meta name="keywords" content="institute of executive studies, executive studies, ies, ies ghana, executive training, Training in Ghana, executive studies, business professionals, human resource training. human resource management in Ghana, Ghana, webinar, institutes in ghana, professional certification, professional training, best training provider, seminar, HR Data Analytics and Reporting , Labour experts, hands on training, best training partner, Graduate training, workers in Ghana, best executive training ghana, workers training, companies in ghana, international training, top company in ghana, Negotiation Techniques for HR Professionals, onsite training, best webinar ghana, IES Learning, IES, online learning, executive learning,">
     <meta name="author" content="codyCobs">
-    <title>Training | IES</title>
-    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <title>Training Schedule | IES</title>
+   <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/iescss.css') }}" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -22,7 +22,7 @@
 </head>
 <body>
     <div class="container">
-<nav class="navbar">
+<<nav class="navbar">
 <div class="container-fluid">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed"
@@ -58,41 +58,76 @@
 </nav>
 <!-- End of navigation -->
     
-<main class="pg-content trng">
+<main class="pg-content int">
     <div class="row">
         <div class="col-sm-12">
-            <img src="{{ url_for('static', filename='img/stories/inpages_banner.jpg') }}" alt="" class="img-responsive center-block">
+            <img src="{{ url_for('static', filename='img/stories/banners/int_progr_banner1.jpg') }}" alt="international-programmes-banner" class="img-responsive">
+            <br><br><hr>
+        </div>
+        <div class="col-sm-12">
+            <h1 class="text-uppercase text-center"><strong>imagine a week studying with the top universities in canada ...</strong></h1>
+            <h4 class="text-center"><strong>We bring you results-oriented executive training at international venues for business leaders and aspirants designed to increase diversity and opportunity in  global business education.</strong><h4><hr>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-12">
-            <h4>Training Schedule - IES</h4>
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead>
-                        <th>Seminars</th>
-                        <th>Course Code</th>
-                        <th>Duration</th>
-                        <th>Location</th>
-                        <th>Date</th>
-                        <th></th>
-                    </thead>
-                    <tbody>
-                        {% if programme %}
-                          {% for programme in programme %}
-                            <tr>
-                                <td><a href="{{ url_for('programmedetail', slug=programme.slug) }}">{{ programme.title}}</a></td>
-                                <td>{{ programme.course_code }}</td>
-                                <td>{{ programme.duration }}</td>
-                                <td>{{ programme.location}}</td>
-                                <td>{{ programme.period }}</td>
-                                <td><a href="{{ url_for('trainingregistration') }}" class="pull-right"><img src="{{ url_for('static', filename='img/stories/reg_now.png') }}" alt="register-online" width="100"></a></td>
-                            </tr>
-                          {% endfor %}
-                        {% endif %}
-                    </tbody>
-                </table>
+        <div class="col-sm-4 col-md-3">
+            <div class="cloak">
+                <a href="forensicAccountingAndFraudDetection.html"><img src="{{ url_for('static', filename='img/adv_block.jpg') }}" alt="advanced-mgt-prog" class="img-responsive center-block"></a>
+                <a href="advancedManagementProgramme.html" class="themed">Advanced Management Programme</a>
             </div>
+        </div>
+        <div class="col-sm-4 col-md-2">
+            <div class="cloak">
+                <a href="forensicAccountingAndFraudDetection.html"><img src="{{ url_for('static', filename='img/forensic_block.jpg') }}" alt="forensic-acc-fraud-detection" class="img-responsive center-block"></a>
+                <a href="forensicAccountingAndFraudDetection.html" class="themed">Forensic Accounting and Fraud Detection</a>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-2">
+            <div class="cloak">
+                <a href="occupationalHealthAndSafety.html"><img src="{{ url_for('static', filename='img/occup_block.jpg') }}" alt="occupation-health-and-safety" class="img-responsive center-block"></a>
+                <a href="occupationalHealthAndSafety.html" class="themed">Occupational Health and Safety</a>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-2">
+            <div class="cloak">
+                <a href="regInternationalProgrammes.html"><img src="{{ url_for('static', filename='img/adv_block.jpg') }}" alt="business-intelligence-dev't-and-data-analytics" class="img-responsive center-block"></a>
+                <a href="regInternationalProgrammes.html" class="themed">Business Intelligence Development and Data Analytics</a>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="cloak">
+                <a href="regInternationalProgrammes.html"><img src="{{ url_for('static', filename='img/hr_canada.jpg') }}" alt="advanced-human-resource-mgt" class="img-responsive center-block"></a>
+                <a href="regInternationalProgrammes.html" class="themed">Advanced Human Resource Management</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-4">
+            <h3 class="themed">Featured Participants</h3>
+            <br>
+            <blockquote class="blockquote-reverse">
+                <p>"This programmes helps you apply the concepts, identify problems and solve them."</p>
+                <footer>Regina Paitoo <br>
+                HR, Head - Reekop</footer>
+            </blockquote>
+            <br>
+            <blockquote>
+                <p>"I have benefited a lot especially in terms of business managementand how to increase profit for my company."</p>
+                <footer>Jonathan Mensah</footer>
+            </blockquote>
+        </div>
+        <div class="col-sm-12 col-md-4 news">
+            <h3 class="themed">News</h3><br>
+            <small>ON MYJOYONLINE.COM</small>
+            <h4><a href="http://business.myjoyonline.com/pages/news/201307/110446.php" target="_blank" class="themed">IES one-week Management Programme ends in Canada</a></h4>
+            <h4><a href="gallery.html" class="themed">Follow the programme activites in pictures</a></h4>
+        </div>
+        <div class="col-sm-12 col-md-4">
+            <h3 class="themed">Programme Details</h3><br>
+            <p><strong>Sessions run throughout the year</strong></p>
+            <p><strong>Fee:</strong> $3850 (Training, Certificate, Airport Pickup and Drop-off, Accommodation, Meals and Light Refreshments, Programme Tours).</p>
+            <p><strong>Registration Fee:</strong> GHC 100</p>
+            <a href="regInternationalProgrammes.html" class="themed"><strong>Apply Now</strong></a>
         </div>
     </div>
 </main>
@@ -108,8 +143,8 @@
         <a href="https://www.plus.google.com" target="_blank"><i class="fa fa-google-plus-square"></i> Google+</a>
         &nbsp;&nbsp;&nbsp;&nbsp;
     </div>
-    <div class="col-sm-12 col-md-7 col-lg-6 text-center">
-        <a href="http://www.gameyandgamey.com/new/" target="_blank"><img src="{{ url_for('static', filename='img/ggam_logo.png') }}" class="img-responsive"></a>
+   <div class="col-sm-12 col-md-7 col-lg-6 text-center">
+        <a href="http://www.gameyandgamey.com/new/" target="_blank"><img src="{{ url_for('static', filename='img/ggam_logo.png') }}" alt="gamey_&_gamey-logo" class="img-responsive"></a>
         <p><strong><em>In Partnership with</em></strong></p>
         <a href="http://www.deweycollege.ca" target="_blank"><img src="{{ url_for('static', filename='img/dewey_logo.png') }}" alt="dewey-logo" class="img-responsive"></a>
     </div>

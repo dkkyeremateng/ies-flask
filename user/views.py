@@ -87,7 +87,7 @@ def logout():
     session.pop("is_author")
     if session.get("admin"):
         session.pop("admin")
-    return redirect(url_for("index"))
+    return redirect(url_for("login_page"))
 
 
 @app.route('/success/')

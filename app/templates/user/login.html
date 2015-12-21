@@ -11,6 +11,7 @@
     <h3>User Login</h3>
 
     {% from "_formhelpers.html" import render_field %}
+
     <form method="POST" action="{{ url_for('login_page') }}" role="form">
 
       {{ form.hidden_tag() }}

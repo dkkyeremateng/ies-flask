@@ -1,6 +1,7 @@
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.migrate import Migrate
+from flaskext.markdown import Markdown
 from flask_bootstrap import Bootstrap
 
 
@@ -16,6 +17,9 @@ bootstrap = Bootstrap(app)
 
 # migrate config
 migrate = Migrate(app, db)
+
+# markdown config
+md = Markdown(app, extensions=["fenced_code", "tables"])
 
 from ies.views import *
 from programme.views import *

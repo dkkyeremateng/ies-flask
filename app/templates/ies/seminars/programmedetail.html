@@ -65,22 +65,18 @@
             <br>
             <br>
             <h4>Overview</h4>
-            <p class="text-justify">Challenged by the modern HR metrics and key performance indicators for measuring HR management success, companies are turning to professionals who can use analytics and think strategically. The HR Data Intelligence Workshop (HRDI) empowers executives and professionals with cross-functional data analysis capabilities to make the most of HR Data from a wide variety of sources, including employee base data, workforce engagement, labour ocst turnover, HR management risk and many more.</p><br>
+            <p class="text-justify">{% if programme.overview %} {{ programme.overview }} {% endif %}</p><br>
             
-            <p><strong>By the end of the HR course, you will be able to:</strong></p><br>
-            <ul>
-                <li>Create management reports in real time with pivot tables and charts with rich graphic styling and the ability to drill employee level</li>
-                <li>Confidently analyse how the movement of talent impacts recruitment; human capitla budgets and human risk data</li>
-                <li>Use powerful HR templates to track HR Key Performance Indicators, answer common and critical HR questions and drill to detail to highlight issues, trends and human capital waste</li>
-            </ul><br>
-            <h4>Course Details</h4><br>
-            <p><strong>Date:</strong>&nbsp;&nbsp;&nbsp;{{ programme.date.strftime("%d-%B-%Y") }}</p>
+            <p><strong>By the end of the HR course, you will be able to:</strong></p>
+            <p>{% if programme.outcome %} {{ programme.outcome|markdown}} {% endif %}</p><br>
+            <h4>Course Details</h4>
+            <p><strong>Date:</strong>&nbsp;&nbsp;&nbsp;{{ programme.period }}</p>
             <p><strong>Venue:</strong>  {{ programme.location }}</p>
             <p><strong>Fee:</strong> GHC {{ programme.fee }} per participant (All Training Sessions, Certificate, Light refreshmment and Lunch.)</p>
-            <br>
+
             <br>
             <h3><strong><a href="{{ url_for('trainingregistration') }}" class="themed">Register Online</a></strong></h3><br>
-            <p>For assistance :</p><br>
+            <p>For assistance :</p>
             <ul>
                 <li>Call Kwabena on +233 307 030572 or +233 244  856218 <br>
                 Or email us at <a href="mailto:info@ieslearning.com" class="themed">info@ieslearning.com</a> |  <a href="mailto:kwabena@ieslearning.com" class="themed">kwabena@ieslearning.com</a></li>
@@ -105,9 +101,9 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
     </div>
     <div class="col-sm-12 col-md-7 col-lg-6 text-center">
-        <a href="http://www.gameyandgamey.com/new/" target="_blank"><img src="img/ggam_logo.png" alt="gamey_&_gamey-logo" class="img-responsive"></a>
+        <a href="http://www.gameyandgamey.com/new/" target="_blank"><img src="{{ url_for('static', filename='img/ggam_logo.png') }}" class="img-responsive"></a>
         <p><strong><em>In Partnership with</em></strong></p>
-        <a href="http://www.deweycollege.ca" target="_blank"><img src="img/dewey_logo.png" alt="dewey-logo" class="img-responsive"></a>
+        <a href="http://www.deweycollege.ca" target="_blank"><img src="{{ url_for('static', filename='img/dewey_logo.png') }}" alt="dewey-logo" class="img-responsive"></a>
     </div>
 </footer>
     </div>

@@ -101,7 +101,7 @@
     <div class="col-xs-6 col-md-3">
         <h4 class="col-headers">International Programmes</h4>
         <p>Results-oriented executive training at international venues.</p>
-        <p><img src="{{ url_for('static', filename='img/bkg-link-arrow-red.jpg') }}" alt="arrow-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="international.html" class="themed">See all training topics</a> <br></p>
+        <p><img src="{{ url_for('static', filename='img/bkg-link-arrow-red.jpg') }}" alt="arrow-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ url_for('international') }}" class="themed">See all training topics</a> <br></p>
     </div>
 </div>
 
@@ -113,9 +113,9 @@
               {% for programme in programme %}
                 <article class="col-xs-6 col-sm-12">
                     <h5><img src="{{ url_for('static', filename='img/bkg-link-arrow-red.jpg') }}" alt="arrow-right">
-                    &nbsp;&nbsp;&nbsp;<a href="legalAspectsOfTheHumanResourceManagement.html" class="themed">{{ programme.title }}</a></h5>
+                    &nbsp;&nbsp;&nbsp;<a href="{{ url_for('programmedetail', slug=programme.slug) }}" class="themed">{{ programme.title }}</a></h5>
                     <div class="pad">
-                        <p><strong>Date:</strong>&nbsp;{{ programme.date.strftime("%d-%B-%Y") }}</p>
+                        <p><strong>Date:</strong>&nbsp;{{ programme.period }}</p>
                         <p><strong>Venue:</strong>&nbsp;{{ programme.location }}</p>
                     <a href="{{ url_for('trainingregistration') }}" class="themed">Register now</a>
                     </div>

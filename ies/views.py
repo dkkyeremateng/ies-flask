@@ -8,16 +8,17 @@ from datetime import date
 
 countries = list(pycountry.countries)
 
-'''
-@app.before_first_request
-def before_request():
-    programme = Programme.query.all()
+
+@app.before_request
+def check_date():
+    today = date.today()
+    programme = Programme.query.order_by(Programme.date.asc()).all()
+
     for programme in programme:
-        if programme.date < date.today():
-            programme.live = True
-        else:
+        if programme.date <= today:
             programme.live = False
-'''
+        else:
+            programme.live = True
 
 
 @app.route("/")
@@ -29,7 +30,7 @@ def index():
 
 @app.route("/training/")
 def training():
-    programme = Programme.query.filter_by(live=True and date > date.today()).order_by(Programme.date.asc()).all()
+    programme = Programme.query.filter_by(live=True).order_by(Programme.date.asc()).all()
 
     return render_template("ies/training.html", programme=programme)
 
@@ -37,6 +38,11 @@ def training():
 @app.route("/onsite/")
 def onsite():
     return render_template("ies/onsite.html")
+
+
+@app.route("/international/")
+def international():
+    return render_template("ies/international.html")
 
 
 @app.route("/requestForProposal/")
@@ -77,7 +83,7 @@ def aboutus():
 @app.route('/programmedetail/<slug>')
 def programmedetail(slug):
     programme = Programme.query.filter_by(slug=slug).first_or_404()
-    print(programme)
+
     return render_template("ies/seminars/programmedetail.html", programme=programme)
 
 

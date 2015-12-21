@@ -6,7 +6,7 @@ from flask.ext.migrate import MigrateCommand
 # manager config
 manager = Manager(app)
 
-manager.add_command("run", Server(use_debugger=True, use_reloader=True, host="localhost", port="5000"))
+manager.add_command("run", Server(use_debugger=True, use_reloader=True))
 manager.add_command("db", MigrateCommand)
 
 if __name__ == '__main__':

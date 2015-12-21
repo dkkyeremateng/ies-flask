@@ -1,5 +1,5 @@
-{% import "bootstrap/wtf.html" as wtf %}
 {% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
 {% block title %}Create Programme{% endblock %}
 
@@ -9,10 +9,19 @@
 
   <div class="col-md-offset-3 col-md-6">
 
-    <h3>Create Programme</h3>
+     {% if action == "new" %}
+      <h3>Create Programme</h3>
+    {% else %}
+      <h3>Edit Programme Post</h3>
+    {% endif %}
 
     {% from "_formhelpers.html" import render_field %}
-    <form method="POST" action="{{ url_for('create_programme') }}" role="form">
+
+    {% if action == "new" %}
+      <form method="POST" action="{{ url_for('create_programme') }}" role="form" enctype="multipart/form-data">
+    {% else %}
+       <form method="POST" action="{{ url_for('update', slug=programme.slug) }}" role="form" enctype="multipart/form-data">
+    {% endif %}
 
       {{ form.hidden_tag() }}
 
@@ -23,7 +32,6 @@
       {{ wtf.quick_form(form) }}
 
     </form>
-
   </div>
 
 </div>
