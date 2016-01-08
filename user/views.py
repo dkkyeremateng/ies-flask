@@ -12,11 +12,11 @@ def login_page():
     if request.method == "GET" and request.args.get("next"):
         session["next"] = request.args.get("next")
 
-    if form.validate_on_submit():
-        user = Users.query.filter_by(username=form.username.data).first()
+    if request.method == "POST":
+        user = Users.query.filter_by(username=request.form['username']).first()
         if user:
-            if user.verify_password(form.password.data):
-                session["username"] = form.username.data
+            if user.verify_password(request.form['password']):
+                session["username"] = request.form['username']
                 session["is_author"] = user.is_author
                 session["admin"] = user.admin
                 if "next" in session:
